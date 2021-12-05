@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regiseter Here.</title>
+  <style>
+<!--    body {-->
+<!--      background-size: 100%;-->
+<!--    }-->
+    body{
+    background-color: #5F9EA0;
+    }
+
+    a.form:hover
+
+    .raw.form{
+      padding-top: 50px;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    .button {
+      text-align: center;
+    }
+    .button:hover {
+      background-color: #F0F8FF;
+    }
+    .form:hover {
+      background-color: #F5F5DC;
+    }
+
+.typewriter-effect {
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+}
+
+.typewriter-effect > .text {
+  max-width: 0;
+  animation: typing 3s steps(var(--characters)) infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typewriter-effect:after {
+  content: " |";
+  animation: blink 1s infinite;
+  animation-timing-function: step-end;
+}
+
+@keyframes typing {
+  75%,
+  100% {
+    max-width: calc(var(--characters) * 1ch);
+  }
+}
+
+@keyframes blink {
+  0%,
+  75%,
+  100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+}
+  </style>
+</head>
+<body>
+<div>
+  <div class="typewriter-effect">
+  <div class="text" id="typewriter-text"></div>
+</div>
+<script class="class">
+  const typeWriter = document.getElementById('typewriter-text');
+  const text = "Hai WouLd yOu liKe reGistEr for yUo'R dReam deStinatiOn ?.";
+  typeWriter.innerHTML = text;
+  typeWriter.style.setProperty('--characters', text.length);
+</script>
+    <br>
+    <br>
+  <div class="raw">
+  <img class="image" src="https://wallpaperaccess.com/full/428886.jpg" style="width:1300px; height:800px; padding-left:20px;">
+
+    <div class="form">
+  <form method="post" action="register">
+    {% csrf_token %}
+    <label>U_Name :</label>
+    <input type="text" name="username" placeholder="username">
+
+    <label>F_Name :</label>
+    <input type="text" name="firstname" placeholder="firstname">
+
+    <label>L_Name :</label>
+    <input type="text" name="lastname" placeholder="lastname">
+
+    <label>E-mail :</label>
+    <input type="email" name="email" placeholder="email.id">
+
+    <label>Password :</label>
+    <input type="password" name="password1" placeholder="password1">
+    <br>
+    <br>
+
+    <label>c_Password :</label>
+    <input type="password" name="password2" placeholder="password2">
+
+      <div class="button">
+    <button>Submit.</button>
+  </div>
+  </form>
+      </div>
+    </div>
+  </div>
+
+
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>

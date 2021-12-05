@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .form{
+            background-color: rgb(24, 62, 100);
+            text-align: center;
+            padding-top: 80px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .page{
+            background-color: gray;
+            text-decoration: none;
+            text-align: center;
+        }
+        body{
+            background-color: gray;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login_page</title>
+</head>
+    <style>
+        .typewriter-effect {
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+}
+
+.typewriter-effect > .text {
+  max-width: 0;
+  animation: typing 3s steps(var(--characters)) infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typewriter-effect:after {
+  content: " |";
+  animation: blink 1s infinite;
+  animation-timing-function: step-end;
+}
+
+@keyframes typing {
+  75%,
+  100% {
+    max-width: calc(var(--characters) * 1ch);
+  }
+}
+
+@keyframes blink {
+  0%,
+  75%,
+  100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+}
+    </style>
+<body>
+<div>
+  <div class="typewriter-effect">
+  <div class="text" id="typewriter-text"></div>
+</div>
+<script class="class">
+  const typeWriter = document.getElementById('typewriter-text');
+  const text = "hEy WouLd yOu liKe to lOgin ?.";
+  typeWriter.innerHTML = text;
+  typeWriter.style.setProperty('--characters', text.length);
+</script>
+    <br>
+    <br>
+    <div class="page">
+    <form action="login" method="POST">
+        <h1>HAI LOGIN HERE</h1>
+        {% csrf_token %}
+        <div class="form">
+        <label>Enter Your Name:</label>
+        <input type="text" name="username" placeholder="Enter You'r UserName"><br>
+        <label>Enter Your Passcode:</label>
+        <input type="password" name="password" placeholder="Enter You'r Password"><br>
+        <label>Are You Sure About This?</label>
+        <!-- <input type="Sign Up"> -->
+        <button type="submit">Sign Up</button>
+    </div>
+    </form>
+</div>
+    <div>
+        {% for msg in messages %}
+        <h3>{{msg}}</h3>
+        {% endfor %}
+    </div>
+    <div class="para">
+    <p></p>
+</div>
+</body>
+</body>
+</html>
